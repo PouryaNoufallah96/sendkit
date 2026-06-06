@@ -1,10 +1,6 @@
 import { Hono } from "hono";
-import { 
-  McpServer
-} from "@modelcontextprotocol/sdk/server/mcp.js";
-import { 
-  WebStandardStreamableHTTPServerTransport
-} from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 
 import { sendTelegramMessage, telegramMessageInputSchema } from "sendkit-core";
 
@@ -22,11 +18,11 @@ function createServer(botToken: string) {
       inputSchema: telegramMessageInputSchema.shape,
     },
     async (input) => {
-      const result = await sendTelegramMessage({ 
-        ...input, 
+      const result = await sendTelegramMessage({
+        ...input,
         botToken,
       });
-  
+
       return {
         content: [
           {
@@ -40,7 +36,7 @@ function createServer(botToken: string) {
   );
 
   return server;
-};
+}
 
 const app = new Hono();
 
