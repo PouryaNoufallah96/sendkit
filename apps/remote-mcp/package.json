@@ -6,9 +6,12 @@
   "exports": {
     ".": "./src/index.ts"
   },
+  "scripts": {
+    "start": "bun run src/index.ts"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
     "hono": "^4.12.23",
-    "@cwa-dev/sendkit-core": "workspace:*"
+    "@cwa-dev/sendkit-core": "0.0.0"
   }
 }
